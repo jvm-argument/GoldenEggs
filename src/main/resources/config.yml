@@ -1,6 +1,5 @@
 db:
   name: eggs.db
-  location: /plugins/GoldenEggs/
 
 prefix: "яйца »"
 
@@ -10,7 +9,8 @@ messages:
     - "{prefix} помощь: иди нахуй"
     - "/goldenegg give Ник Тип_Яйца Кол-во - выдать яйцо"
     - "/goldenegg reload - релод плагина"
-    - "/goldenegg zov - посхалко"
+  #  - "/goldenegg zov - посхалко"
+
 items:
   1-egg:
     display_name: "&#ccab00З&#d3b100а&#dab700г&#e1bd00а&#e9c300д&#f0c900о&#f7cf00ч&#ffd600н&#ffd600о&#ffd600е&#ffd600 &#ffd600я&#ffd600й&#ffd600ц&#ffd600о&#ffd600 &#f8d000п&#f2cb00р&#ebc500и&#e5c000з&#dfbb00ы&#d8b500в&#d2b000а"
