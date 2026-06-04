@@ -1,4 +1,20 @@
 name: GoldenEggs
 version: '${project.version}'
-main: ru.kirill.goldeneggs.GoldenEggs
+main: ru.kirill.goldeneggs.Main
 api-version: '1.21'
+commands:
+  goldenegg:
+    description: main command
+    usage: idi nahuy
+    aliases: [ge, zov]
+    permission: goldeneggs.use
+permissions:
+  goldeneggs.use:
+    description: main access
+    default: op
+  goldeneggs.give:
+    description: give player egg
+    default: op
+  goldeneggs.reload:
+    description: reload config
+    default: op
