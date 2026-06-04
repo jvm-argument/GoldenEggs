@@ -1,0 +1,4 @@
+name: GoldenEggs
+version: '${project.version}'
+main: ru.kirill.goldeneggs.GoldenEggs
+api-version: '1.21'
