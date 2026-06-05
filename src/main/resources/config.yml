@@ -1,13 +1,14 @@
 db:
   name: eggs.db
 
-prefix: "яйца »"
+prefix: "&6ZOV_PLUGIN &f»"
 
 messages:
   give: "{prefix} выдано яйцо игроку {player}"
   help-message:
     - "{prefix} помощь: иди нахуй"
     - "/goldenegg give Ник Тип_Яйца Кол-во - выдать яйцо"
+    - "/goldenegg pick Ник - выдать кирку Джейка"
     - "/goldenegg reload - релод плагина"
   #  - "/goldenegg zov - посхалко"
 
@@ -88,3 +89,17 @@ items:
       - ""
       - " &#ffd600&l&n▍&#e7e7e7 Может вмещать в себе случайного моба,"
       - " &#ffd600&l▍&#e7e7e7 с шансом из списка, указанного выше."
+pickaxe:
+  material: GOLDEN_PICKAXE
+  display_name: "&#cca000З&#d4a600о&#ddad00л&#e5b400о&#eebb00т&#f6c200а&#ffc900я&#ffc900 &#ffc900к&#ffc900и&#ffc900р&#ffc900к&#ffc900а&#ffc900 &#f7c300Д&#f0bd00ж&#e9b700е&#e1b100й&#daab00к&#d3a500а"
+  lore:
+    - ""
+    - " &7Особенность:"
+    - " &#ffcf46- сломав спавнер этой киркой,"
+    - "&0. &#ffcf46 он выпадет, сохранив моба внутри,"
+    - "&0. &#ffcf46 после чего кирка сломается."
+
+# название выпавшего спавнера
+spawner-drop:
+  egg-name: "&#ffd600Загадочный спавнер &7({egg})"
+  mob-name: "&7Спавнер: {mob}"
