@@ -1,19 +1,28 @@
 db:
   name: eggs.db
 
-prefix: "&6ZOV_PLUGIN &f»"
+prefix: "яйца »"
 
 messages:
-  give: "{prefix} выдано яйцо игроку {player}"
+  no-perm: "{prefix} нима прав"
+  give-usage: "{prefix} использование /goldenegg give Ник Тип-Яйца Кол-во"
+  player-offline: "{prefix} игрок {player} не в сети."
+  unknown-egg: "{prefix} неизвестный тип яйца {egg} доступные {list}"
+  not-number: "{prefix} кол-во должно быть = числом"
+  give: "{prefix} выдано яйцо игроку {player} типа {type}"
+  pick-usage: "{prefix} укажи ник /goldenegg pick Ник"
+  pick-given: "{prefix} выдана кирка игроку {player}"
+  reloaded: "{prefix} плагин релоднут"
+  zov: "{prefix} окак 67....."
   help-message:
     - "{prefix} помощь: иди нахуй"
     - "/goldenegg give Ник Тип_Яйца Кол-во - выдать яйцо"
-    - "/goldenegg pick Ник - выдать кирку Джейка"
+    - "/goldenegg pick Ник - выдать кирку ПИЖОНА"
     - "/goldenegg reload - релод плагина"
   #  - "/goldenegg zov - посхалко"
 
 items:
-  1-egg:
+  vedma:
     display_name: "&#ccab00З&#d3b100а&#dab700г&#e1bd00а&#e9c300д&#f0c900о&#f7cf00ч&#ffd600н&#ffd600о&#ffd600е&#ffd600 &#ffd600я&#ffd600й&#ffd600ц&#ffd600о&#ffd600 &#f8d000п&#f2cb00р&#ebc500и&#e5c000з&#dfbb00ы&#d8b500в&#d2b000а"
     material: witch_spawn_egg
     chances:
@@ -38,7 +47,7 @@ items:
       - ""
       - " &#ffd600&l&n▍&#e7e7e7 Может вмещать в себе случайного моба,"
       - " &#ffd600&l▍&#e7e7e7 с шансом из списка, указанного выше."
-  2-egg:
+  brutalni_piglin:
     display_name: "&#ccab00З&#d3b100а&#dab700г&#e1bd00а&#e9c300д&#f0c900о&#f7cf00ч&#ffd600н&#ffd600о&#ffd600е&#ffd600 &#ffd600я&#ffd600й&#ffd600ц&#ffd600о&#ffd600 &#f8d000п&#f2cb00р&#ebc500и&#e5c000з&#dfbb00ы&#d8b500в&#d2b000а"
     material: piglin_brute_spawn_egg
     chances:
@@ -64,7 +73,7 @@ items:
       - ""
       - " &#ffd600&l&n▍&#e7e7e7 Может вмещать в себе случайного моба,"
       - " &#ffd600&l▍&#e7e7e7 с шансом из списка, указанного выше."
-  3-egg:
+  creeper1:
     display_name: "&#ccab00З&#d3b100а&#dab700г&#e1bd00а&#e9c300д&#f0c900о&#f7cf00ч&#ffd600н&#ffd600о&#ffd600е&#ffd600 &#ffd600я&#ffd600й&#ffd600ц&#ffd600о&#ffd600 &#f8d000п&#f2cb00р&#ebc500и&#e5c000з&#dfbb00ы&#d8b500в&#d2b000а"
     material: creeper_spawn_egg
     chances:
@@ -76,6 +85,7 @@ items:
         chance: 17.5
       - mob: ZOMBIE
         chance: 17.5
+        baby: false
       - mob: CREEPER
         chance: 2.0
     lore:
@@ -89,17 +99,84 @@ items:
       - ""
       - " &#ffd600&l&n▍&#e7e7e7 Может вмещать в себе случайного моба,"
       - " &#ffd600&l▍&#e7e7e7 с шансом из списка, указанного выше."
+  creeper2:
+    display_name: "&#ccab00З&#d3b100а&#dab700г&#e1bd00а&#e9c300д&#f0c900о&#f7cf00ч&#ffd600н&#ffd600о&#ffd600е&#ffd600 &#ffd600я&#ffd600й&#ffd600ц&#ffd600о&#ffd600 &#f8d000п&#f2cb00р&#ebc500и&#e5c000з&#dfbb00ы&#d8b500в&#d2b000а"
+    material: parrot_spawn_egg
+    chances:
+      - mob: ZOMBIE
+        chance: 75.0
+      - mob: CREEPER
+        chance: 25.0
+    lore:
+      - ""
+      - " &x&a&a&a&a&a&aОсобенность:"
+      - " &x&f&f&d&6&0&0- содержит в себе одного случайного моба"
+      - " &x&f&f&d&6&0&0  с определённом шансом, указанным в списке ниже."
+      - ""
+      - " &x&a&a&a&a&a&aПотенциальное содержание:"
+      - " &x&5&5&f&f&5&5• Крипер — 25,0%"
+      - " &x&f&f&d&6&0&0• Зомби — 75,0%"
+  mix:
+    display_name: "&#ccab00З&#d3b100а&#dab700г&#e1bd00а&#e9c300д&#f0c900о&#f7cf00ч&#ffd600н&#ffd600о&#ffd600е&#ffd600 &#ffd600я&#ffd600й&#ffd600ц&#ffd600о&#ffd600 &#f8d000п&#f2cb00р&#ebc500и&#e5c000з&#dfbb00ы&#d8b500в&#d2b000а"
+    material: salmon_spawn_egg
+    chances:
+      - mob: ZOGLIN
+        chance: 12.5
+      - mob: PIGLIN_BRUTE
+        chance: 12.5
+      - mob: ZOMBIE
+        chance: 12.5
+        baby: true
+      - mob: HUSK
+        chance: 12.5
+      - mob: BLAZE
+        chance: 12.5
+      - mob: ZOMBIFIED_PIGLIN
+        chance: 12.5
+      - mob: VINDICATOR
+        chance: 12.5
+      - mob: PILLAGER
+        chance: 12.5
+    lore:
+      - ""
+      - " &x&a&a&a&a&a&aОсобенность:"
+      - " &x&f&f&d&6&0&0- содержит в себе одного случайного моба"
+      - " &x&f&f&d&6&0&0  с определённом шансом, указанным в списке ниже."
+      - ""
+      - " &x&a&a&a&a&a&aПотенциальное содержание:"
+      - " &x&f&f&d&6&0&0• Зоглин — 12,5%"
+      - " &x&f&f&d&6&0&0• Брутальный пиглин — 12,5%"
+      - " &x&f&f&d&6&0&0• Мини-зомби — 12,5%"
+      - " &x&f&f&d&6&0&0• Кадавр — 12,5%"
+      - " &x&f&f&d&6&0&0• Блейз — 12,5%"
+      - " &x&f&f&d&6&0&0• Зомбифицированный пиглин — 12,5%"
+      - " &x&f&f&d&6&0&0• Поборник — 12,5%"
+      - " &x&f&f&d&6&0&0• Разбойник — 12,5%"
+      - ""
+      -
 pickaxe:
   material: GOLDEN_PICKAXE
   display_name: "&#cca000З&#d4a600о&#ddad00л&#e5b400о&#eebb00т&#f6c200а&#ffc900я&#ffc900 &#ffc900к&#ffc900и&#ffc900р&#ffc900к&#ffc900а&#ffc900 &#f7c300Д&#f0bd00ж&#e9b700е&#e1b100й&#daab00к&#d3a500а"
   lore:
+    - "&x&a&a&a&a&a&aСпавнер I"
     - ""
     - " &7Особенность:"
     - " &#ffcf46- сломав спавнер этой киркой,"
     - "&0. &#ffcf46 он выпадет, сохранив моба внутри,"
     - "&0. &#ffcf46 после чего кирка сломается."
 
-# название выпавшего спавнера
+# выпавший спавнер
 spawner-drop:
-  egg-name: "&#ffd600Загадочный спавнер &7({egg})"
-  mob-name: "&7Спавнер: {mob}"
+  # загадочный
+  mystery:
+    display_name: "&#fff500З&#ffe200а&#ffd301г&#ffc701а&#ffbc01дочный спавнер"
+    lore:
+      - "{egg_lore}"
+  # vanila
+  vanilla:
+    display_name: "&8Расадник: &7{mob}"
+    lore:
+      - ""
+      - "&8Особенности:"
+      - "&#e7e7e7 - автоматически призывает {mob}."
+      - ""

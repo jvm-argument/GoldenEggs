@@ -6,7 +6,7 @@ commands:
   goldenegg:
     description: main command
     usage: idi nahuy
-    aliases: [ge, zov]
+    aliases: [ge]
     permission: goldeneggs.use
 permissions:
   goldeneggs.use:
