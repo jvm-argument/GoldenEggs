@@ -23,10 +23,33 @@ public class Egg {
         this.mobs = mobs;
     }
 
-    // выбор моба по шансам
+    // хз писал друг, вроде норм работает
     public MobData roll() {
-        // TODO посчитать сумму шансов и рандомить взвешенно
         if (mobs == null || mobs.size() == 0) return null;
+        double total = 0;
+        for (int i = 0; i < mobs.size(); i++) {
+            total = total + mobs.get(i).chance;
+        }
+        if (total <= 0) return null;
+        double r = rnd.nextDouble() * total;
+        double cur = 0;
+        for (int i = 0; i < mobs.size(); i++) {
+            cur = cur + mobs.get(i).chance;
+            if (r < cur) {
+                return mobs.get(i);
+            }
+        }
+        return mobs.get(mobs.size() - 1);
+    }
+
+    // fix
+    public MobData find(org.bukkit.entity.EntityType t) {
+        if (mobs == null) return null;
+        for (int i = 0; i < mobs.size(); i++) {
+            if (mobs.get(i).type == t) {
+                return mobs.get(i);
+            }
+        }
         return null;
     }
 
@@ -42,4 +65,3 @@ public class Egg {
         }
     }
 }
-

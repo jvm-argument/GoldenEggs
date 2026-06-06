@@ -3,6 +3,11 @@ package ru.kirill.goldeneggs;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
+import ru.kirill.goldeneggs.command.Commands;
+import ru.kirill.goldeneggs.db.DBHelper;
+import ru.kirill.goldeneggs.event.Events;
+import ru.kirill.goldeneggs.manager.Manager;
+import ru.kirill.goldeneggs.utils.Utils;
 
 import java.io.File;
 import java.util.ArrayList;
