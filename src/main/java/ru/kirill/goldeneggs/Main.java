@@ -2,6 +2,7 @@ package ru.kirill.goldeneggs;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 import ru.kirill.goldeneggs.command.Commands;
 import ru.kirill.goldeneggs.db.DBHelper;
@@ -17,6 +18,7 @@ public class Main extends JavaPlugin {
 
     Manager manager;
     DBHelper db;
+    Events events;
     FileConfiguration mobsCfg;
     File mobsFile;
 
@@ -51,6 +53,7 @@ public class Main extends JavaPlugin {
     }
 
     // я чусвтую что это писал не человек а ИИ
+    // да мои догадки были верны, клевер использовал ии сюда.
     public String getPrefix() {
         return Utils.color(getConfig().getString("prefix"));
     }
@@ -87,13 +90,17 @@ public class Main extends JavaPlugin {
         manager = new Manager(this);
         manager.load();
     }
+    
     public void regCommands() {
         getCommand("goldenegg").setExecutor(new Commands(this, manager));
         getCommand("goldenegg").setTabCompleter(new Commands(this, manager));
     }
+
     public void regEvents() {
-        getServer().getPluginManager().registerEvents(new Events(this, manager, db), this);
+        events = new Events(this, manager, db);
+        getServer().getPluginManager().registerEvents(events, this);
     }
+
     void loadMobsFile() {
         mobsFile = new File(getDataFolder(), "mobs.yml");
         if (!mobsFile.exists()) {
@@ -101,4 +108,27 @@ public class Main extends JavaPlugin {
         }
         mobsCfg = YamlConfiguration.loadConfiguration(mobsFile);
     }
+
+    // апи для тнт, воркает через рефлексию
+    public String getEggIdAt(org.bukkit.Location loc) {
+        if (db == null) return null;
+        return db.getEgg(loc);
+    }
+
+    public boolean isMysterySpawner(org.bukkit.Location loc) {
+        return getEggIdAt(loc) != null;
+    }
+
+    public void unbindSpawner(org.bukkit.Location loc) {
+        if (db != null) db.remove(loc);
+    }
+
+    public ItemStack createMysterySpawnerItem(String eggId) {
+        return events.makeSpawnerItem(null, eggId);
+    }
+
+    public ItemStack createNormalSpawnerItem(org.bukkit.entity.EntityType type) {
+        return events.makeSpawnerItem(type, null);
+    }
+
 }

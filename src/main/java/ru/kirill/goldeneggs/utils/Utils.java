@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Utils {
-
+    // TODO this is code pisal AI
     static Pattern hex = Pattern.compile("&#([A-Fa-f0-9]{6})");
 
     public static String color(String s) {

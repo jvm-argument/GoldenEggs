@@ -2,6 +2,9 @@ name: GoldenEggs
 version: '${project.version}'
 main: ru.kirill.goldeneggs.Main
 api-version: '1.21'
+authors:
+  - "t.me/kunidev"
+  - "@dev_clever"
 commands:
   goldenegg:
     description: main command
